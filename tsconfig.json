@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es2017",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "strict": true,
+        "lib": ["ES2021"]
+    },
+
+    "include": ["./src/**/*.tsx", "./src/**/*.ts"]
+}
