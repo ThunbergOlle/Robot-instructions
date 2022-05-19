@@ -2,7 +2,7 @@ import assert from 'assert';
 import Robot from './Robot';
 describe('Robot', function () {
     describe('changeFacing()', function () {
-        it('Should change the orientation to west.', function () {
+        it('Should change the orientation to east.', function () {
             const robot = new Robot(1, 1, 'N', 1, 1);
             robot.changeFacing('R');
             assert.equal(robot.facing, 'E');
@@ -28,6 +28,17 @@ describe('Robot', function () {
             const robot = new Robot(1, 1, 'N', 2, 2);
             robot.moveForward();
             assert.equal(robot.y, 2);
+        });
+        it('Should move forward in the north direction, getting the position of 0,2.', function () {
+            const robot = new Robot(0, 0, 'N', 2, 2);
+            robot.moveForward();
+            robot.moveForward();
+            robot.moveForward();
+            robot.moveForward();
+            robot.moveForward();
+            robot.moveForward();
+            assert.equal(robot.y, 2);
+            assert.equal(robot.x, 0);
         });
     });
     describe('move()', function () {

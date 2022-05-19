@@ -11,7 +11,7 @@ export const parseInput = (input: string) =>
 
 /* Function for asking the user for the grid size */
 export async function AskForGridSize(rl: ReadLine): Promise<{ gridX: number; gridY: number }> {
-    return await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         rl.question(
             'How big field do you wish to set? Please enter two numbers, the first being the width and the second being the height\n',
             (_input) => {
@@ -34,11 +34,11 @@ export async function AskForStartingPos(
     gridSizeX: number,
     gridSizeY: number
 ): Promise<{ x: number; y: number; facing: Compass }> {
-    return await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         rl.question(
             'Where do you want to start? Please enter two coordinate values and one character describing the orientation. Valid orientations are: N,E,S,W\n',
             (response) => {
-                const _input = response.replaceAll(' ', ''); // Remove spaces, if there are any.
+                const _input = response.replaceAll(' ', ''); // Remove spaces, if there are any. ES2021 feature
                 const coordinates = _input.substring(0, 2); // The first to characters are coordinates
                 const facing = _input[2]; // The third character is the orientation which the bot is facing.
                 const input: number[] = parseInput(coordinates);
@@ -58,7 +58,7 @@ export async function AskForStartingPos(
 /* Function for asking the user for directions */
 const directionInputList: DirectionInput[] = ['L', 'R', 'F'];
 export async function AskForDirections(rl: ReadLine): Promise<DirectionInput[]> {
-    return await new Promise((resolve) => {
+    return new Promise((resolve) => {
         rl.question(
             'Where do you want the robot to go? You can give directions by a sequence of characters. Valid characters are: \nF: Walk forward\nR: Turn right\nL: Turn left\n',
             (_input) => {

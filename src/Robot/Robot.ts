@@ -24,29 +24,29 @@ export default class Robot {
                 if (this.y !== this.gridY) {
                     this.y += 1;
                     break;
-                }
+                } else break;
             case 'E':
                 if (this.x !== this.gridX) {
                     this.x += 1;
                     break;
-                }
+                } else break;
             case 'S':
                 if (this.y !== 0) {
                     this.y -= 1;
                     break;
-                }
+                } else break;
             case 'W':
                 if (this.x !== 0) {
                     this.x -= 1;
                     break;
-                }
+                } else break;
         }
     }
     /* Method for changing the orientation of the robot  */
     changeFacing(turning: 'R' | 'L') {
         /* 
             The facingInputList is an array containing all the possible orientations of the robot
-            When turning right, the index of the array increases and eventually wraps around the array. W
+            When turning right, the index of the array increases and eventually wraps around the array. 
             When turning left, the index of the array decreases.
         */
         let currentIndex = facingInputList.findIndex(
