@@ -52,8 +52,8 @@ export async function AskForStartingPos(
                     throw 'Input X is bigger than the grid size - 1 on X';
                 }
                 if (input[1] > gridSizeY - 1) {
-                    console.log('Input Y is bigger than the grid size - 1 on Y'');
-                    throw('Input Y is bigger than the grid size - 1 on Y'');
+                    console.log('Input Y is bigger than the grid size - 1 on Y');
+                    throw 'Input Y is bigger than the grid size - 1 on Y';
                 }
                 return ({ x: input[0], y: input[1], facing: facing as Compass });
 }
