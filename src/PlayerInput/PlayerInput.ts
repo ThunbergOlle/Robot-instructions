@@ -47,8 +47,8 @@ export async function AskForStartingPos(
                         'Please enter correct data: Allowed inputs are 0-9 & NESW, please enter three characters\n'
                     );
                 }
-                if (input[0] > gridSizeX) return reject('Input X is bigger than the grid size on X');
-                if (input[1] > gridSizeY) return reject('Input Y is bigger than the grid size on Y');
+                if (input[0] > gridSizeX - 1) return reject('Input X is bigger than the grid size - 1 on X');
+                if (input[1] > gridSizeY - 1) return reject('Input Y is bigger than the grid size - 1 on Y');
 
                 return resolve({ x: input[0], y: input[1], facing: facing as Compass });
             }
