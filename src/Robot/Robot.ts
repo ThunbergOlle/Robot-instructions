@@ -70,4 +70,17 @@ export default class Robot {
             }
         }
     }
+    draw() {
+        // Make a grid with the sizeX and sizeY in the console. (draw it)
+        let grid = '';
+        for (let i = 0; i < this.gridY; i++) {
+            for (let j = 0; j < this.gridX; j++) {
+                if (i === this.y && j === this.x) grid += '🤖';
+                else grid += '⬜️';
+            }
+            grid += '\n';
+        }
+        // Place the robot in the grid
+        console.log(grid);
+    }
 }
