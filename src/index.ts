@@ -25,7 +25,7 @@ const main = async () => {
         const directions = await AskForDirections(rl);
 
         robot.move(directions);
-
+        robot.draw();
         console.log(
             `Your robot ended up at the position ${robot.x}, ${
                 robot.gridY - robot.y

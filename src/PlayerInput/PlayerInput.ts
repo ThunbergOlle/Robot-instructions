@@ -46,16 +46,17 @@ export async function AskForStartingPos(
                     console.log('Please enter correct data');
                     throw 'Please enter correct data';
                 }
-                if (input[0] > gridSizeX){
-                    console.log('Input X is bigger than the grid size on X');
-                    throw 'Input X is bigger than the grid size on X';
+
+                if (input[0] > gridSizeX - 1){
+                    console.log('Input X is bigger than the grid size - 1 on X');
+                    throw 'Input X is bigger than the grid size - 1 on X';
                 }
-                if (input[1] > gridSizeY) {
-                    console.log('Input Y is bigger than the grid size on Y');
-                    throw('Input Y is bigger than the grid size on Y');
+                if (input[1] > gridSizeY - 1) {
+                    console.log('Input Y is bigger than the grid size - 1 on Y'');
+                    throw('Input Y is bigger than the grid size - 1 on Y'');
                 }
                 return ({ x: input[0], y: input[1], facing: facing as Compass });
-            }
+}
         
  
 

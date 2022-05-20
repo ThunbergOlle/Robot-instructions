@@ -8,10 +8,12 @@ export default class Robot {
     facing: Compass = 'N';
     gridX: number = 0;
     gridY: number = 0;
+    visitedTiles: number[][] = [];
 
     constructor(x: number, y: number, facing: Compass, gridX: number, gridY: number) {
         // Assign the inputs to the current object
         Object.assign(this, { x: x, y: y, facing: facing, gridX: gridX, gridY: gridY });
+        this.visitedTiles.push([this.x, this.y]);
     }
     /* Method for moving the robot forward */
     moveForward() {
@@ -41,6 +43,7 @@ export default class Robot {
                     break;
                 } else break;
         }
+        this.visitedTiles.push([this.x, this.y]);
     }
     /* Method for changing the orientation of the robot  */
     changeFacing(turning: 'R' | 'L') {
@@ -69,5 +72,19 @@ export default class Robot {
                 this.changeFacing(input[i] as 'R' | 'L');
             }
         }
+    }
+    draw() {
+        // Make a grid with the sizeX and sizeY in the console. (draw it)
+        let grid = '';
+        for (let i = this.gridY; i > 0; i--) {
+            for (let j = 0; j < this.gridX; j++) {
+                if (i === this.y && j === this.x) grid += '🤖';
+                else if (this.visitedTiles.find((tile) => tile[0] === j && tile[1] === i)) grid += '🟩';
+                else grid += '⬜️';
+            }
+            grid += '\n';
+        }
+        // Place the robot in the grid
+        console.log(grid);
     }
 }
